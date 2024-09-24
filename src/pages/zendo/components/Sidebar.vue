@@ -6,23 +6,23 @@ const zendoStore = useZendoStore()
 </script>
 
 <template>
-    <el-menu default-active="2" :collapse="zendoStore.isCollapse" class="el-menu-vertical-demo">
+    <el-menu default-active="1" :collapse="zendoStore.isCollapse" class="el-menu-vertical-demo">
         <el-menu-item class="logo">
             <img src="../assets/logo.png" alt="logo" style="width: 30px; margin-right: 6px;">
             <template #title>
-                <span style="color: #fff; font-weight: bold;">代码禅道</span>
+                <span style="font-weight: bold;">代码禅道</span>
             </template>
         </el-menu-item>
 
-        <template v-for="(menu, i) in zendoStore.menuList" :key="menu.url">
+        <template v-for="(menu, i) in zendoStore.menuList" :key="menu.path" >
             <!-- 一级菜单 -->
-            <RouterLink :to="menu.url" v-if="!menu.children">
+            <RouterLink :to="menu.path" v-if="!menu.children" @click="zendoStore.updateNavList(menu)">
                 <el-menu-item :index="i + ''">
                     <el-icon>
                         <setting />
                     </el-icon>
                     <template #title>
-                        {{ menu.label }}
+                        {{ menu.name }}
                     </template>
                 </el-menu-item>
             </RouterLink>
@@ -33,12 +33,12 @@ const zendoStore = useZendoStore()
                     <el-icon>
                         <location />
                     </el-icon>
-                    <span>{{ menu.label }}</span>
+                    <span>{{ menu.name }}</span>
                 </template>
-                <template v-for="(subMenu, j) in menu.children" :key="subMenu.url">
-                    <RouterLink :to="subMenu.url">
+                <template v-for="(subMenu, j) in menu.children" :key="subMenu.path">
+                    <RouterLink :to="subMenu.path" @click="zendoStore.updateNavList(subMenu)">
                         <el-menu-item :index="i + '-' + j">
-                            {{ subMenu.label }}
+                            {{ subMenu.name }}
                         </el-menu-item>
                     </RouterLink>
                 </template>
@@ -50,30 +50,11 @@ const zendoStore = useZendoStore()
 <style scoped lang="scss">
 .el-menu-vertical-demo {
     min-height: 100vh;
-    height: 100%;
-    background: #545c64;
+    // color: var(--color-text);
+    // background: var(--color-background);
 }
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-}
-
-:deep(.el-sub-menu__title) {
-    color: #a9a9a9;
-}
-
-.contaier .logo {
-    background: #545c64;
-    // border-bottom: 1px solid #fff;
-}
-
-.el-menu-item {
-    color: #a9a9a9;
-    background: #545c64;
-
-    &.is-active {
-        color: #fff;
-        background: #545c64;
-    }
 }
 </style>

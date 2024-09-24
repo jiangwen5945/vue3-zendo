@@ -1,6 +1,6 @@
 <script setup>
 import TablePlus from '../components/TablePlus.vue'
-import { msg } from '@/utils/message'
+// import { msg } from '@/utils/message'
 
 const tableData = [
     {
@@ -59,16 +59,26 @@ const handleOpenMSg = () => {
 </script>
 
 <template>
-    <el-divider content-position="left" border-style="dashed">封装表格</el-divider>
-    <tablePlus :tableData="tableData" :tableColumns="tableColumns" border>
-        <template #operation="scoped">
-            <el-button type="primary" size="default" @click="handleEdit(scoped)">编辑</el-button>
-        </template>
-    </tablePlus>
+    <div class="container">
+        <el-divider content-position="left" border-style="dashed">封装表格</el-divider>
+        <tablePlus :tableData="tableData" :tableColumns="tableColumns" border>
+            <template #operation="scoped">
+                <el-button type="primary" size="default" @click="handleEdit(scoped)">编辑</el-button>
+            </template>
+        </tablePlus>
 
-    <el-divider content-position="left" border-style="dashed" style="margin-top: 100px;">封装JSX消息提示</el-divider>
-
-    <el-button type="primary" @click="msg('hello!')">显示消息</el-button>
-    <el-button type="primary" @click="msg('hello!', '最新消息')">显示标题</el-button>
-    <el-button type="primary" @click="handleOpenMSg">执行回调函数</el-button>
+        <el-divider content-position="left" border-style="dashed" style="margin-top: 100px;">封装JSX消息提示</el-divider>
+        <el-button type="primary" @click="msg('hello!')">显示消息</el-button>
+        <el-button type="primary" @click="msg('hello!', '最新消息')">显示标题</el-button>
+        <el-button type="primary" @click="handleOpenMSg">执行回调函数</el-button>
+    </div>
 </template>
+
+<style lang="scss" scoped>
+    // .container{
+    //     background: #fff;
+    //     padding: 20px;
+    //     border: 1px solid #eee;
+    //     margin-bottom:  20px;
+    // }
+</style>

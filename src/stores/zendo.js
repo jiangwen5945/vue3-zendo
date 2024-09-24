@@ -7,6 +7,5 @@ export const useZendoStore = defineStore('zendo', () => {
   function increment() {
     count.value++
   }
-
   return { count, doubleCount, increment }
 })

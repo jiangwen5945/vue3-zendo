@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container cell-bg">
         <div :class="['demo_box', 'shadow_' + n]" v-for="n in 93" :key="n">第{{ n }}个盒子</div>
     </div>
 </template>
@@ -18,6 +18,7 @@
     text-align: center;
     line-height: 200px;
     color: #999;
+    background: #fff;
 }
 
 

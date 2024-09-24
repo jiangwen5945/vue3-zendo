@@ -27,6 +27,27 @@ export default {
                 <slot :name="col.prop" v-bind="scoped"></slot>
             </template>
         </el-table-column>
+
+        <el-table-column>
+            <template #header>
+                金额（元）
+               <el-select clearable filterable>
+                <el-option
+                    label="演示1"
+                    value="demo1">
+                </el-option>
+                <el-option
+                    label="演示2"
+                    value="demo2">
+                </el-option>
+                <el-option
+                    label="演示3"
+                    value="demo3">
+                </el-option>
+               </el-select>
+               
+            </template>
+        </el-table-column>
     </el-table>
 
 </template>

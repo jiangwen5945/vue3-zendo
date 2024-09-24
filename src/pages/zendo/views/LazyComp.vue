@@ -4,7 +4,7 @@
  2. IntersectionObserver
 -->
 <template>
-    <div>
+    <div class="page cell-bg">
         <div class="box">
             首屏内容
             <div class="sync-item">同步组件</div>
@@ -62,14 +62,12 @@ ob.observe
 <style lang="scss" scoped>
 .box {
     width: 100%;
-    background: #c9c8c8;
-    color: #fff;
     font-size: 40px;
-    margin: 20px 0;
-    padding: 20px;
     text-align: center;
     min-height: 500px;
     box-sizing: border-box;
+    margin-bottom: 80px;
+    padding: 20px;
 }
 
 .sync-item {

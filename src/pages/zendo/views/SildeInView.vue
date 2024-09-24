@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="page cell-bg">
         <div class="item" v-slide-in v-for="n in 10" :key="n">{{ n }}</div>
     </div>
 </template>

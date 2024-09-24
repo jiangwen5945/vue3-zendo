@@ -1,5 +1,5 @@
 <template>
-    <div class="container" v-waterMarker="{
+    <div class="page" v-waterMarker="{
         text: 'JiangWen版权所有',
         font: '14px Microsoft JhengHei',
         textColor: 'rgba(180, 180, 180, 0.4)'
@@ -8,10 +8,9 @@
 </template>
 
 <style scoped lang="scss">
-.container {
+.page {
     width: 100%;
     height: 100%;
     border: 1px dashed rgb(180, 180, 180);
-    box-sizing: border-box;
 }
 </style>

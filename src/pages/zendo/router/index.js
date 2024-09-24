@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Layout from '../views/Layout.vue'
 
 import menuList from '../data/menus'
 
@@ -9,13 +9,13 @@ import menuList from '../data/menus'
 //     tempArr.push(
 //       ...e.children.map((v) => {
 //         return {
-//           path: v.url,
+//           path: v.path,
 //           component: v.component
 //         }
 //       })
 //     )
 //   } else {
-//     tempArr.push({ path: e.url, component: e.component })
+//     tempArr.push({ path: e.path, component: e.component })
 //   }
 //   return tempArr
 // })
@@ -25,25 +25,30 @@ menuList.forEach((e) => {
   if (e.children) {
     e.children.forEach((v) => {
       dynamicRouting.push({
-        path: v.url,
+        ...v,
+        path: v.path,
         component: () => import(`../views/${v.component}.vue`)
       })
     })
   } else {
-    dynamicRouting.push({ path: e.url, component: () => import(`../views/${e.component}.vue`) })
+    dynamicRouting.push({ 
+      ...e,
+      path: e.path, 
+      component: () => import(`../views/${e.component}.vue`) 
+    })
   }
 })
 
 console.log('dynamicRouting', dynamicRouting)
 
 const router = createRouter({
-  // history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_path),
   history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      redirect: '/home',
+      component: Layout,
       children: dynamicRouting
     },
     {

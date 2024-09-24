@@ -2,12 +2,14 @@ import slideIn from './slideIn'
 import waterMarker from './waterMarker'
 import draggable from './draggable'
 import debounce from './debounce'
+import throttle from './throttle'
 
 const directives = {
   slideIn,
   waterMarker,
   draggable,
-  debounce
+  debounce,
+  throttle
 }
 
 export default {
