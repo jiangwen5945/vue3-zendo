@@ -19,8 +19,9 @@ const zendoStore = useZendoStore()
             <RouterLink :to="menu.path" v-if="!menu.children" @click="zendoStore.updateNavList(menu)">
                 <el-menu-item :index="i + ''">
                     <el-icon>
-                        <setting />
+                        <component class="icons" :is="menu.icon"></component>
                     </el-icon>
+                   
                     <template #title>
                         {{ menu.name }}
                     </template>
@@ -31,10 +32,11 @@ const zendoStore = useZendoStore()
             <el-sub-menu :index="i + ''" v-else>
                 <template #title>
                     <el-icon>
-                        <location />
+                        <component class="icons" :is="menu.icon"></component>
                     </el-icon>
                     <span>{{ menu.name }}</span>
                 </template>
+                
                 <template v-for="(subMenu, j) in menu.children" :key="subMenu.path">
                     <RouterLink :to="subMenu.path" @click="zendoStore.updateNavList(subMenu)">
                         <el-menu-item :index="i + '-' + j">

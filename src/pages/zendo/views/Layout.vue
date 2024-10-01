@@ -38,7 +38,7 @@ export default {
     <el-aside width="auto">
       <Sidebar />
     </el-aside>
-    
+
     <el-container>
       <el-header>
         <the-header />
@@ -78,20 +78,20 @@ export default {
   // background-size: 20px 20px;
   // background-position: center center;
   padding: 10px 20px 20px 20px;
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
 }
 
 .blur-main {
   padding: 0 20px 20px 20px;
   filter: blur(6px);
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
 }
 </style>

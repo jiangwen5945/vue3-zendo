@@ -27,7 +27,8 @@ menuList.forEach((e) => {
       dynamicRouting.push({
         ...v,
         path: v.path,
-        component: () => import(`../views/${v.component}.vue`)
+        a: `../views/${v.component}.vue`,
+        component: () => import(`../views/${e.path}/${v.component}.vue`)
       })
     })
   } else {

@@ -4,7 +4,7 @@
       v-for="(item, index) in navList" 
       :key="item.name" 
       :effect="item.path === currentRoute ? 'dark' : 'plain'" 
-      :closable="item.path !== '/'"
+      :closable="item.path !== '/home'"
       @close="handleClose(item, index)" 
       @click="changeMenu(item)"
       size="small" 

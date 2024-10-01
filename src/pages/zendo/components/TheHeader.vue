@@ -7,7 +7,6 @@ import { useRouter, useRoute } from 'vue-router'
 const router = useRouter();
 // 获取当前路由
 const breadcrumbs = computed(() => {
-    console.log('breadcrumbs', router.currentRoute.value);
     const [_first, ..._breadcrumbs] = router.currentRoute.value.matched
     return router.currentRoute.value.name === '首页' ? _breadcrumbs : [{name: '首页', path: '/'}, ..._breadcrumbs]
 })
